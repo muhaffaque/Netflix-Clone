@@ -75,6 +75,7 @@ const NavContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 2rem;
+      margin-left: 4rem;
       .logo {
         display: flex;
         justify-content: center;
@@ -89,6 +90,7 @@ const NavContainer = styled.div`
       display: flex;
       list-style-type: none;
       gap: 3rem;
+      
       li {
         a {
           color: white;
@@ -102,6 +104,7 @@ const NavContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-right: 1rem;
     button{
       background-color: red;
       border: none;
@@ -111,7 +114,7 @@ const NavContainer = styled.div`
       outline: none;
     }svg{
       color: white;
-      font-size: 2rem;
+      font-size: 2.3rem;
     }
   }
 `;
