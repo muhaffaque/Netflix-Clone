@@ -1,17 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopNav from "../components/TopNav";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Card from "../components/Card";
+import {useDispatch, useSelector} from'react-redux';
+import { fetchMovies, getGenres } from "../store";
+import SliderContainer from "../components/SliderContainer";
 
 const Netflix = () => {
   const [isScroll, setIsScroll] = useState(false);
 
+  const navigate= useNavigate()
+
+  const movies = useSelector((state)=>state.netflix.movies)
+
+  const genresLoaded = useSelector((state)=>state.netflix.genresLoaded)
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(getGenres())
+  },[])
+
+  useEffect(()=>{
+    if(genresLoaded){
+      dispatch(fetchMovies({type: "all"}))
+    }
+  })
+
   window.onscroll = () => {
     setIsScroll(window.pageYOffset === 0 ? false : true);
   };
-  console.log(isScroll);
 
-  const navigate= useNavigate()
+  // console.log(movies)
 
   return (
     <HeroContainer>
@@ -33,6 +54,7 @@ const Netflix = () => {
           </div>
         </div>
       </div>
+      <SliderContainer movies={movies}/>
     </HeroContainer>
   );
 };

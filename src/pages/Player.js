@@ -1,47 +1,49 @@
-import React from 'react'
-import { styled } from 'styled-components'
-import {BsArrowLeft} from 'react-icons/bs'
-import {useNavigate} from 'react-router-dom'
+import React from "react";
+import { styled } from "styled-components";
+import { BsArrowLeft } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const Player = () => {
-   
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Playcontainer>
-       <div className='player'>
-          <div className='backArrow'>
-            <BsArrowLeft onClick={()=>navigate(-1)}/>
-          </div>
-    
-            <video src='https://res.cloudinary.com/ehizeex-shop/video/upload/v1668377666/NetflixApp/Action_mlw9wx.mp4' 
-            autoPlay loop controls muted
-            />
-       
-       </div>
+      <div className="player">
+        <div className="backArrow">
+          <BsArrowLeft onClick={() => navigate(-1)} />
+        </div>
+
+        <video
+          src="https://res.cloudinary.com/ehizeex-shop/video/upload/v1668377666/NetflixApp/Action_mlw9wx.mp4"
+          autoPlay
+          loop
+          controls
+          muted
+        />
+      </div>
     </Playcontainer>
-  )
-}
+  );
+};
 
 const Playcontainer = styled.div`
-.player{
-  width: 100vw;
-  height: 100vh;
-  .backArrow{
-    position: absolute;
-    padding: 2rem;
-    z-index: 1;
-    svg{
-      font-size: 3rem;
-      cursor: pointer;
-      color: white;
+  .player {
+    width: 100vw;
+    height: 100vh;
+    .backArrow {
+      position: absolute;
+      padding: 2rem;
+      z-index: 1;
+      svg {
+        font-size: 3rem;
+        cursor: pointer;
+        color: white;
+      }
+    }
+    video {
+      height: 100%;
+      width: 100%;
     }
   }
-  video{
-    height: 100%;
-    width: 100%;
-  }
-}
-`
+`;
 
-export default Player
+export default Player;
